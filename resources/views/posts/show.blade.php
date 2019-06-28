@@ -9,17 +9,21 @@
    <hr>
    <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
    <hr>
-<a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
+   @if(!Auth::guest())
+    @if(Auth::user()->id == $post->user_id)
+        <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
 
-<form method="POST" action="/posts/{{$post->id}}" style="float: right">
-    {{method_field('DELETE')}}
-    {{csrf_field()}}
+        <form method="POST" action="/posts/{{$post->id}}" style="float: right">
+            {{method_field('DELETE')}}
+            {{csrf_field()}}
 
-    <div class="field">
-        <div class="control">
-            <button class="btn btn-danger" type="submit" name="submit">Delete Post</button>
-        </div>
-    </div>
+            <div class="field">
+                <div class="control">
+                    <button class="btn btn-danger" type="submit" name="submit">Delete Post</button>
+                </div>
+            </div>
 
-</form>
+        </form>
+    @endif
+    @endif
 @endsection
