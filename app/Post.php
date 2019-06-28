@@ -13,4 +13,8 @@ class Post extends Model
     //Timestamps
     public $timestamps = true;
     //This is all already set by default, this is just an example if you want to change it
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }

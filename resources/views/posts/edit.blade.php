@@ -26,7 +26,7 @@
 
         <div class="field">
             <div class="control">
-                <button class="btn btn-primary" type="submit" name="submit">Create Post</button>
+                <button class="btn btn-primary" type="submit" name="submit">Update Post</button>
             </div>
         </div>
 

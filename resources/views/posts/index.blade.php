@@ -6,7 +6,7 @@
         @foreach($posts as $post)
             <div class="card-body bg-light border">
             <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
-                <small>Written or {{$post->created_at}}</small>
+                <small>Written or {{$post->created_at}} by {{$post->user->name}}</small>
             </div>
         @endforeach
     @else
