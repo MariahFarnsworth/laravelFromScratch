@@ -3,7 +3,7 @@
 @section('content')
     <h1 class='title'>Edit Post</h1>
 
-    <form method="POST" action="/posts/{{$post->id}}">
+    <form method="POST" action="/posts/{{$post->id}}" enctype="multipart/form-data">
         {{method_field('PATCH')}}
         {{csrf_field()}}
 
@@ -23,6 +23,13 @@
                 <textarea name="body" class="textarea " placeholder="Post body" required>{{$post->body}}</textarea>
             </div>
         </div>
+
+        <div class="field">
+                <label class="label" for="cover_image">File Upload</label>
+                <div class="control">
+                    <input type="file"  name="cover_image" />
+                </div>
+            </div>
 
         <div class="field">
             <div class="control">
